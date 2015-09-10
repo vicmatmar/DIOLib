@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FT232HDIO", "FT232HDIO\FT232HDIO.csproj", "{40E5BCB7-0889-4050-B389-FE3190650DCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ftd2xxtwinest", "..\ftd2xxtwinest\ftd2xxtwinest\ftd2xxtwinest.csproj", "{F9960683-3A12-4CEB-8995-B0003F50DC8F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{40E5BCB7-0889-4050-B389-FE3190650DCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40E5BCB7-0889-4050-B389-FE3190650DCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40E5BCB7-0889-4050-B389-FE3190650DCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9960683-3A12-4CEB-8995-B0003F50DC8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9960683-3A12-4CEB-8995-B0003F50DC8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9960683-3A12-4CEB-8995-B0003F50DC8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9960683-3A12-4CEB-8995-B0003F50DC8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
