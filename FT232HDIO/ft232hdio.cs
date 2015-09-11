@@ -92,6 +92,14 @@ namespace DIO
             return state;
         }
 
+        void _set_bus_state(DIO_BUS bus, byte state)
+        {
+            if (bus == DIO_BUS.BUSA)
+                _cha_state = state;
+            else if (bus == DIO_BUS.BUSB)
+                _chb_state = state;
+        }
+
         /// <summary>
         /// Set the state of the pin
         /// </summary>
@@ -103,21 +111,28 @@ namespace DIO
         {
             Debug.Assert(pin < 8 && pin >= 0, "Pin number must be between 0 and 7");
             byte addr = _get_bus_address(bus);
-            byte state = _get_bus_state(bus);
+            byte state_current = _get_bus_state(bus);
 
             byte pin_num = Convert.ToByte(pin);
+            byte state_new = state_current;
             if (value)
             {
-                state |= (byte)(1 << pin_num);
+                state_new |= (byte)(1 << pin_num);
             }
             else
             {
-                state &= (byte)(1 << pin_num);
+                state_new &= (byte)(0 << pin_num);
             }
 
-            byte[] buffer = new byte[] { addr, state, 0xFF };
-            uint n = 0;
-            FTDI.FT_STATUS status = _ftdi.Write(buffer, buffer.Length, ref n);
+            FTDI.FT_STATUS status = FTDI.FT_STATUS.FT_OK;
+            if (state_current != state_new)
+            {
+                _set_bus_state(bus, state_new);
+
+                byte[] buffer = new byte[] { addr, state_new, 0xFF };
+                uint n = 0;
+                status = _ftdi.Write(buffer, buffer.Length, ref n);
+            }
 
             return status;
         }
